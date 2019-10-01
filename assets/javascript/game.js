@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // initialize variables and starting values
     var total = 0;
     var crystalOne = Math.floor((Math.random() * 12) + 1);
     var crystalTwo = Math.floor((Math.random() * 12) + 1);
@@ -8,15 +9,15 @@ $(document).ready(function () {
     var wins = 0;
     var losses = 0;
 
+    console.log("starting crystal values===");
     console.log(crystalOne);
     console.log(crystalTwo);
     console.log(crystalThree);
     console.log(crystalFour);
-    console.log("=======");
-    console.log(total);
 
-    // generate a beginning value
+    // display random number to start game
     $("#random-number").text(computerGuess);
+    console.log("random number===")
     console.log(computerGuess);
 
     // update total scores based on button clicks
@@ -41,17 +42,34 @@ $(document).ready(function () {
     });
 
     // reset function
-    
+    function resetFunction() {
+        total = 0;
+        crystalOne = Math.floor((Math.random() * 12) + 1);
+        crystalTwo = Math.floor((Math.random() * 12) + 1);
+        crystalThree = Math.floor((Math.random() * 12) + 1);
+        crystalFour = Math.floor((Math.random() * 12) + 1);
+        computerGuess = Math.floor((Math.random() * 100) + 19);
+        $("total-score-text").text(total);
+        $("#random-number").text(computerGuess);
+        console.log("new cystal values ===");
+        console.log(crystalOne);
+        console.log(crystalTwo);
+        console.log(crystalThree);
+        console.log(crystalFour);
+        console.log("new random number ===");
+        console.log(computerGuess);
+    }
 
-
-    // decide and display wins & losses
-    $(".btn").on("click", function () {        
+    // decide and display wins & losses, reset game
+    $(".btn").on("click", function () {
         if (total === computerGuess) {
             wins++;
             $("#wins-text").text("Wins: " + wins);
+            resetFunction();
         } else if (total > computerGuess) {
             losses++;
             $("#losses-text").text("Losses: " + losses);
-        }
+            resetFunction();
+        };
     });
-})
+});
