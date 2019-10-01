@@ -1,0 +1,25 @@
+.game-name {
+    background-color: orange;
+    color: white;
+    text-align: center;
+}
+
+.game-instructions {
+    background-color: lightpink;
+    color: white;
+}
+
+.random-box {
+    background-color: green;
+    color: white;
+}
+
+.win-box {
+    background-color: lightgreen;
+    color: white;
+}
+
+.total-box {
+    background-color: darkgreen;
+    color: white;
+}
